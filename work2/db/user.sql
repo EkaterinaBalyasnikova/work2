@@ -1,0 +1,3 @@
+CREATE USER user_db WITH PASSWORD 'pass';
+GRANT CONNECT ON DATABASE postgres TO user_db;
+GRANT USAGE ON SCHEMA public TO user_db;
