@@ -3,7 +3,7 @@ import sys
 import time
 import logging
 import concurrent.futures
-import psycopg
+import psycopg2
 import re
 
 INTERVAL_SECONDS = int(os.getenv("POLL_INTERVAL_SECONDS"))
@@ -41,7 +41,7 @@ TYPICAL_RE = re.compile(r"^PostgreSQL", re.IGNORECASE)
 
 def check_db_version():
     try:
-        with psycopg.connect(
+        with psycopg2.connect(
             host=DB_HOST,
             port=DB_PORT,
             dbname=DB_NAME,
